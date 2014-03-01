@@ -11,11 +11,13 @@ class SearchHandler
     store_results
   end
 
+private
+
   def search_results
     results = Searcher.new(alert.keyword).call
-    if results['total'] > Searcher.per_page
-      pages << @results['documents']
-      call_other_pages
+    if results['total'] > results_per_page
+      pages << results['documents']
+      other_pages(results['total'])
     else
       @results = results['documents']
     end
@@ -25,9 +27,13 @@ class SearchHandler
     @results.map { |result| result['id'] }
   end
 
-  def other_pages
-    # ...
-    # @results << ...
+  def other_pages(total_results)
+    pages_count = (total_results / results_per_page).ceil
+    (2...pages_count).to_a.each do |page| # Page #1 is already loaded
+      results = Searcher.new(alert.keyword).call(page)
+      pages << results['documents']
+    end
+    @results = pages.flatten
   end
 
   def store_results
@@ -58,5 +64,9 @@ class SearchHandler
 
   def result_for(documentcloud_id, new_search_ids)
     new_results(new_search_ids).detect { |r| r['id'] == documentcloud_id }
+  end
+
+  def results_per_page
+    Searcher.per_page
   end
 end
