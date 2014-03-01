@@ -1,0 +1,17 @@
+<%= form_for @alert, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :keyword, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :keyword, :class => 'text_field' %>
+    </div>
+    <%= f.label :document_type, :class => 'control-label' %>
+    <div class="controls">    
+          <%= f.select :document_type, @document_types.map {|d| [ d.name, d.id ]}, :selected => :document_type %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                alerts_path, :class => 'btn' %>
+  </div>
+<% end %>

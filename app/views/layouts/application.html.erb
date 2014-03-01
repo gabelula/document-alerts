@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DocumentAlert</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= nav_bar :fixed => :top, :brand => "Document Cloud Alerts" do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+    <% end %>
+    <% if user_signed_in? %>
+        <%= menu_group :pull => :right do %>
+          <%= menu_item "Settings", edit_user_registration_path %>
+          <%= menu_item "Log Out", destroy_user_session_path, :method => :delete %>
+        <% end %>
+    <% else %>
+        <%= menu_group :pull => :right do %>
+            <%= menu_item "Sign In", new_user_session_path %>
+            <%= menu_item "Sign Up", new_user_registration_path %>
+         <% end %>
+    <% end %>
+<% end %>
+
+<div class="content">
+  <%= yield %>
+</div>
+
+</body>
+</html>
