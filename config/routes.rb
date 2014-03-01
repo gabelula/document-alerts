@@ -1,4 +1,5 @@
 DocumentAlert::Application.routes.draw do
+  get "home/new"
   resources :document_types
 
   resources :alerts
@@ -9,7 +10,7 @@ DocumentAlert::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root :to => "alerts#index"
+  root :to => "search#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

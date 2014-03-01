@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DocumentAlert</title>
+  <title>DocumentCloud Alerts System</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= nav_bar :fixed => :top, :brand => "Document Cloud Alerts" do %>
+<%= nav_bar :fixed => :top, :brand => "Document Alerts" do %>
     <%= menu_group do %>
         <%= menu_item "Home", root_path %>
     <% end %>
@@ -26,6 +26,10 @@
 <% end %>
 
 <div class="content">
+   <% if flash[:alert] %><div class="alert alert-info"><%=flash[:alert]%></div><% end %>
+   <% if flash[:notice] %><div class="alert alert-info"><%=flash[:notice]%></div><% end %>
+   <% if flash[:error] %><div class="alert alert-error"><%=flash[:error]%></div><% end %>
+
   <%= yield %>
 </div>
 
