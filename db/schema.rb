@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301133126) do
+ActiveRecord::Schema.define(version: 20140301194738) do
 
   create_table "alerts", force: true do |t|
     t.string   "keyword"
@@ -29,6 +29,23 @@ ActiveRecord::Schema.define(version: 20140301133126) do
   end
 
   add_index "document_types", ["alert_id"], name: "index_document_types_on_alert_id"
+
+  create_table "findings", force: true do |t|
+    t.string  "documentcloud_id"
+    t.integer "alert_id"
+    t.boolean "sent",             default: false
+  end
+
+  create_table "non_sent_results", force: true do |t|
+    t.integer  "alert_id"
+    t.string   "documentcloud_id"
+    t.string   "title"
+    t.string   "canonical_url"
+    t.string   "description"
+    t.string   "resources"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

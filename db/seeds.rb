@@ -7,3 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 DocumentType.create([{ name: 'Oficial'}, {name: 'AFSCA'}])
+
+u = User.new
+u.email = "document@gmail.com"
+u.password = "password"
+u.save
