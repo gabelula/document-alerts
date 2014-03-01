@@ -18,11 +18,11 @@ class Searcher
     @keywords = URI.escape(keywords)
   end
 
-  def call
-    JSON.parse(HTTParty.get(query_url).body)
+  def call(page=1)
+    JSON.parse(HTTParty.get(query_url(page)).body)
   end
 
-  def query_url
-    "https://www.documentcloud.org/api/search.json?q=#{keywords}&per_page=#{per_page}"
+  def query_url(page=1)
+    "https://www.documentcloud.org/api/search.json?q=#{keywords}&per_page=#{per_page}&page=#{page}"
   end
 end
