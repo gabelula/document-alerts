@@ -1,0 +1,32 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Classes
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+// The example for the search form
+.search-examples {
+  font-style: italic;
+  font-size: 10px;
+}
+
+//********** One item in the search results ************//
+
+.search-result {}
+.search-result-title {
+}
+
+.search-result-date {
+  float: right;
+  font-style: italic;
+}
+
+.search-result-summary {
+  padding: 5px;
+}

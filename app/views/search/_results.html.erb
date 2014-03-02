@@ -1,0 +1,5 @@
+<% if @results %>
+    <% @results.each do |result| %>
+      <%= render :partial => "search/result", :locals => {result: result} %>
+    <% end %>
+<% end %>

@@ -1,13 +1,7 @@
-<%= form_tag("/search", method: "get", class: "form-inline", role: "search") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search", class: "btn btn-default") %>
-<% end %>
-
-
-
-<div class="container-fluid">
-  <div class="row">
-
-  </div>
+<div class="center-block">
+  <%= render :partial => 'form' %>
 </div>
+
+<h1><%= params[:query] %></h1>
+
+<%= render :partial => 'search/results' %>
