@@ -1,5 +1,5 @@
 <div class="search-result">
-  <p class="search-result-date text-right"><%= result[:document_date] %></p>
-  <h4 class="search-result-title"><a href="<%= result[:document_url] %>"><%= result[:document_title] %></a></h3>
-  <p class="search-result-summary"><%= result[:document_summary] %></p>
+  <p class="search-result-date text-right"><%= result.created_at %></p>
+  <h4 class="search-result-title"><a href="<%= result.url %>"><%= result.title %></a></h3>
+  <p class="search-result-summary"><%= raw result.description %></p>
 </div>

@@ -1,6 +1,6 @@
 class DocumentcloudSearcherService
   attr_reader :page
-  DocumentcloudSearch = Struct.new(:title, :created_at, :description, :link)
+  DocumentcloudSearch = Struct.new(:title, :created_at, :description, :url)
 
   def initialize(str, page=1)
     @str = str
