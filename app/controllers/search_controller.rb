@@ -1,6 +1,10 @@
 class SearchController < ApplicationController
 
   def index
+    # This should be replaced by:
+    # @results = DocumentcloudSearcherService.new("str", params[:page]).call
+
+    # TODO: remove all the example queries
     @results = [
       {
         document_id:      1,
