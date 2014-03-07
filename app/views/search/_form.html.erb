@@ -1,7 +1,7 @@
-<%= form_tag(url_for(:controller => "search", :action => "index"), method: "get", class: "form-inline", role: "search") do %>
+<%= form_tag(search_path, :method => :get, class: "form-inline", role: "search") do %>
   <%= label_tag(:query, "Search for:") %>
-  <%= text_field_tag(:query) %>
+  <%= text_field_tag(:query, value=nil) %>
   <%= submit_tag("Search", class: "btn btn-default") %>
   <div class="clear"></div>
-  <div class="text-muted">Ex: <a href="<%= url_for(:controller => "search", :action => "index", :query => "Mujica") %>">Cristina Fernandez</a></div>
+  <div class="text-muted">Ex: <a href="<%= url_for(:controller => "search", :action => "index", :query => "Cristina Fernandez") %>">Cristina Fernandez</a></div>
 <% end %>
