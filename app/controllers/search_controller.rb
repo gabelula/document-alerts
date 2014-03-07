@@ -5,7 +5,7 @@ class SearchController < ApplicationController
     page = params.fetch(:page, 1)
     query = params[:query]
 
-    @results = DocumentcloudSearcherService.new("Mujica", page).call
+    @results = DocumentcloudSearcherService.new(query, page).call
 
     respond_to do |format|
       format.html # show.html.erb
