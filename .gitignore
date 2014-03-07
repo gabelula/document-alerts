@@ -31,3 +31,4 @@ test/version_tmp
 _yardoc
 doc/
 .DS_Store
+database.yml
