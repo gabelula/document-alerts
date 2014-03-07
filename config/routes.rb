@@ -11,7 +11,8 @@ DocumentAlert::Application.routes.draw do
   # root 'welcome#index'
   root :to => "search#index"
 
-  get '/search/:query' => 'search#index', :as => 'search'
+  resources :search
+  #get '/search/:query' => 'search#index', :as => 'search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

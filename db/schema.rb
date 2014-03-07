@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140301194738) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "alerts", force: true do |t|
     t.string   "keyword"
     t.integer  "user_id"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140301194738) do
     t.datetime "updated_at"
   end
 
-  add_index "document_types", ["alert_id"], name: "index_document_types_on_alert_id"
+  add_index "document_types", ["alert_id"], name: "index_document_types_on_alert_id", using: :btree
 
   create_table "findings", force: true do |t|
     t.string  "documentcloud_id"
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140301194738) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
